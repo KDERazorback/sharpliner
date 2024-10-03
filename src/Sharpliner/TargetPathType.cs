@@ -1,4 +1,4 @@
-﻿namespace Sharpliner;
+namespace Sharpliner;
 
 /// <summary>
 /// Specifies the type of the target path for the generated template or pipeline.
@@ -24,4 +24,9 @@ public enum TargetPathType
     /// Absolute file system path
     /// </summary>
     Absolute,
+
+    /// <summary>
+    /// Relative to the base directory of the collection
+    /// </summary>
+    RelativeToBaseDir,
 }
