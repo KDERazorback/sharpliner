@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Sharpliner.Common;
@@ -10,11 +10,13 @@ namespace Sharpliner.AzureDevOps;
 /// </summary>
 /// <typeparam name="T">Type of the pipeline (full, single stage..)</typeparam>
 /// <param name="TargetFile">Path to the YAML file/folder where this definition/collection will be exported to</param>
+/// <param name="BasePath">Path to the folder where this definition/collection will be exported to</param>
 /// <param name="Pipeline">Definition of the template</param>
 /// <param name="PathType">Override this to define where the resulting YAML should be stored (together with TargetFile)</param>
 /// <param name="Header">Header that will be shown at the top of the generated YAML file. Leave empty array for no header, leave null for a default</param>
 public record PipelineDefinitionData<T>(
     string TargetFile,
+    string BasePath,
     T Pipeline,
     TargetPathType PathType = TargetPathType.RelativeToGitRoot,
     string[]? Header = null);
@@ -38,6 +40,8 @@ public abstract class PipelineDefinitionCollection<TPipeline>
 internal class PipelineDefinitionWrapper<T>(PipelineDefinitionData<T> data, Type definitionType) : ISharplinerDefinition where T : PipelineBase
 {
     public string TargetFile { get; } = data.TargetFile;
+
+    public string BasePath { get; } = data.BasePath;
 
     public TargetPathType TargetPathType { get; } = data.PathType;
 

@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Sharpliner.AzureDevOps.ConditionedExpressions;
@@ -11,12 +11,14 @@ namespace Sharpliner.AzureDevOps;
 /// </summary>
 /// <typeparam name="T">Type of the template (one of stages, jobs, steps or variables)</typeparam>
 /// <param name="TargetFile">Path to the YAML file/folder where this definition/collection will be exported to</param>
+/// <param name="BasePath">Path to the folder where this definition/collection will be exported to</param>
 /// <param name="Definition">Definition of the template</param>
 /// <param name="Parameters">List of template parameters</param>
 /// <param name="PathType">Override this to define where the resulting YAML should be stored (together with TargetFile)</param>
 /// <param name="Header">Header that will be shown at the top of the generated YAML file. Leave empty array for no header, leave null for a default</param>
 public record TemplateDefinitionData<T>(
     string TargetFile,
+    string BasePath,
     ConditionedList<T> Definition,
     List<Parameter>? Parameters = null,
     TargetPathType PathType = TargetPathType.RelativeToGitRoot,
@@ -48,6 +50,8 @@ internal class TemplateDefinitionWrapper<T>(
     private readonly string[]? _header = data.Header ?? SharplinerPublisher.GetDefaultHeader(definitionType);
 
     public override string TargetFile { get; } = data.TargetFile;
+
+    public override string BasePath { get; } = data.BasePath;
 
     public override TargetPathType TargetPathType { get; } = data.PathType;
 

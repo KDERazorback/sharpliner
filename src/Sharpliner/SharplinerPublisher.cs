@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -206,6 +206,9 @@ public class SharplinerPublisher(TaskLoggingHelper logger)
 
             case TargetPathType.Absolute:
                 return definition.TargetFile;
+
+            case TargetPathType.RelativeToBaseDir:
+                return Path.Combine(definition.BasePath, definition.TargetFile);
 
             default:
                 throw new ArgumentException(nameof(definition.TargetPathType));

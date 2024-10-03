@@ -1,4 +1,4 @@
-﻿using Sharpliner.Common;
+using Sharpliner.Common;
 using System.Collections.Generic;
 
 namespace Sharpliner;
@@ -11,9 +11,15 @@ public interface ISharplinerDefinition
 {
     /// <summary>
     /// Path to the YAML file/folder where this definition/collection will be exported to
-    /// Example: "/pipelines/ci.yaml"
+    /// Example: "ci.yaml"
     /// </summary>
     string TargetFile { get; }
+
+    /// <summary>
+    /// Path to the folder where this definition/collection will be exported to
+    /// Example: "/pipelines"
+    /// </summary>
+    string BasePath { get; }
 
     /// <summary>
     /// Override this to define where the resulting YAML should be stored (together with TargetFile)

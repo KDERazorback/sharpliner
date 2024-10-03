@@ -702,6 +702,7 @@ namespace Sharpliner.AzureDevOps
     public abstract class PipelineDefinitionBase<TPipeline> : Sharpliner.AzureDevOps.AzureDevOpsDefinition, Sharpliner.ISharplinerDefinition
         where TPipeline : Sharpliner.AzureDevOps.PipelineBase
     {
+        public virtual string BasePath { get; }
         public virtual string[]? Header { get; }
         public abstract TPipeline Pipeline { get; }
         public abstract string TargetFile { get; }
@@ -717,7 +718,8 @@ namespace Sharpliner.AzureDevOps
     }
     public class PipelineDefinitionData<T> : System.IEquatable<Sharpliner.AzureDevOps.PipelineDefinitionData<T>>
     {
-        public PipelineDefinitionData(string TargetFile, T Pipeline, Sharpliner.TargetPathType PathType = 0, string[]? Header = null) { }
+        public PipelineDefinitionData(string TargetFile, string BasePath, T Pipeline, Sharpliner.TargetPathType PathType = 0, string[]? Header = null) { }
+        public string BasePath { get; init; }
         public string[]? Header { get; init; }
         public Sharpliner.TargetPathType PathType { get; init; }
         public T Pipeline { get; init; }
@@ -1057,7 +1059,8 @@ namespace Sharpliner.AzureDevOps
     }
     public class TemplateDefinitionData<T> : System.IEquatable<Sharpliner.AzureDevOps.TemplateDefinitionData<T>>
     {
-        public TemplateDefinitionData(string TargetFile, Sharpliner.AzureDevOps.ConditionedExpressions.ConditionedList<T> Definition, System.Collections.Generic.List<Sharpliner.AzureDevOps.Parameter>? Parameters = null, Sharpliner.TargetPathType PathType = 0, string[]? Header = null) { }
+        public TemplateDefinitionData(string TargetFile, string BasePath, Sharpliner.AzureDevOps.ConditionedExpressions.ConditionedList<T> Definition, System.Collections.Generic.List<Sharpliner.AzureDevOps.Parameter>? Parameters = null, Sharpliner.TargetPathType PathType = 0, string[]? Header = null) { }
+        public string BasePath { get; init; }
         public Sharpliner.AzureDevOps.ConditionedExpressions.ConditionedList<T> Definition { get; init; }
         public string[]? Header { get; init; }
         public System.Collections.Generic.List<Sharpliner.AzureDevOps.Parameter>? Parameters { get; init; }
@@ -1066,6 +1069,7 @@ namespace Sharpliner.AzureDevOps
     }
     public abstract class TemplateDefinition<T> : Sharpliner.AzureDevOps.TemplateDefinition, Sharpliner.ISharplinerDefinition
     {
+        public virtual string BasePath { get; }
         public abstract Sharpliner.AzureDevOps.ConditionedExpressions.ConditionedList<T> Definition { get; }
         public virtual string[]? Header { get; }
         public virtual System.Collections.Generic.List<Sharpliner.AzureDevOps.Parameter> Parameters { get; }
@@ -2103,6 +2107,7 @@ namespace Sharpliner
     }
     public interface ISharplinerDefinition
     {
+        string BasePath { get; }
         string[]? Header { get; }
         string TargetFile { get; }
         Sharpliner.TargetPathType TargetPathType { get; }
@@ -2174,6 +2179,7 @@ namespace Sharpliner
         RelativeToCurrentDir = 1,
         RelativeToAssembly = 2,
         Absolute = 3,
+        RelativeToBaseDir = 4,
     }
     public class YamlStringEnumConverter : YamlDotNet.Serialization.IYamlTypeConverter
     {

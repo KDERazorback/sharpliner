@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using Sharpliner.Common;
 
@@ -16,6 +16,12 @@ internal abstract class WorkflowDefinition : ISharplinerDefinition
     /// Example: "pipelines/ci.yaml"
     /// </summary>
     public abstract string TargetFile { get; }
+
+    /// <summary>
+    /// Path to the folder where this definition/collection will be exported to
+    /// Example: "/pipelines"
+    /// </summary>
+    public virtual string BasePath { get; } = string.Empty;
 
     public virtual TargetPathType TargetPathType => TargetPathType.RelativeToCurrentDir;
 

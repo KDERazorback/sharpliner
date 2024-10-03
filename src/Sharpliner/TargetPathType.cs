@@ -1,4 +1,4 @@
-﻿namespace Sharpliner;
+namespace Sharpliner;
 
 public enum TargetPathType
 {
@@ -21,4 +21,9 @@ public enum TargetPathType
     /// Absolute file system path
     /// </summary>
     Absolute,
+
+    /// <summary>
+    /// Relative to the base directory of the collection
+    /// </summary>
+    RelativeToBaseDir,
 }

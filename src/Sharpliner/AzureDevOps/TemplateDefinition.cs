@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using Sharpliner.AzureDevOps.ConditionedExpressions;
@@ -143,6 +143,12 @@ public abstract class TemplateDefinition<T> : TemplateDefinition, ISharplinerDef
     /// Example: "pipelines/ci.yaml"
     /// </summary>
     public abstract string TargetFile { get; }
+
+    /// <summary>
+    /// Path to the folder where this definition/collection will be exported to
+    /// Example: "/pipelines"
+    /// </summary>
+    public virtual string BasePath { get; } = string.Empty;
 
     public virtual TargetPathType TargetPathType => TargetPathType.RelativeToCurrentDir;
 
