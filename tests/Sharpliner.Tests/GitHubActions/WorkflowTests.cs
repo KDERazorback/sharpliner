@@ -3,6 +3,7 @@ using Sharpliner.GitHubActions;
 
 namespace Sharpliner.Tests.GitHubActions;
 
+[Collection("Serial:1")]
 public class WorkflowTests
 {
     private class TestWorkflow : WorkflowDefinition

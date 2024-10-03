@@ -4,6 +4,7 @@ using Sharpliner.AzureDevOps.Tasks;
 
 namespace Sharpliner.Tests.AzureDevOps;
 
+[Collection("Serial:1")]
 public class DotNetCoreCliTests
 {
     private readonly DotNetTaskBuilder _builder = new();

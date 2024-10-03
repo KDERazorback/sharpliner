@@ -3,6 +3,7 @@ using Sharpliner.Common;
 
 namespace Sharpliner.Tests.AzureDevOps.Validation;
 
+[Collection("Serial:1")]
 public class DependsOnValidationTests
 {
     private class ConditionedDependsOnPipeline : TestPipeline

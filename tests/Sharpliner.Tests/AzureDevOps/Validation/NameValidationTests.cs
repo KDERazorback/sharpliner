@@ -2,6 +2,7 @@
 
 namespace Sharpliner.Tests.AzureDevOps.Validation;
 
+[Collection("Serial:1")]
 public class NameValidationTest
 {
     private class DuplicateStageNamePipeline : TestPipeline

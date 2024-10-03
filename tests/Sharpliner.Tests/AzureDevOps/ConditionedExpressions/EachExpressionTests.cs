@@ -2,6 +2,7 @@
 
 namespace Sharpliner.Tests.AzureDevOps.ConditionedExpressions;
 
+[Collection("Serial:1")]
 public class EachExpressionTests
 {
     private class Each_Expression_Test_Pipeline : TestPipeline

@@ -2,6 +2,7 @@
 
 namespace Sharpliner.Tests.AzureDevOps;
 
+[Collection("Serial:1")]
 public class StrongTypedTests
 {
     private class Pipeline_With_Strong_Variables_And_Parameters : SimpleTestPipeline
