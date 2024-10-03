@@ -3,6 +3,7 @@ using Sharpliner.AzureDevOps.Tasks;
 
 namespace Sharpliner.Tests.AzureDevOps.ConditionedExpressions;
 
+[Collection("Serial:1")]
 public class ElseExpressionTests
 {
     private class Else_Expression_Test_Pipeline : TestPipeline

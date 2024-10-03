@@ -5,6 +5,7 @@ using YamlDotNet.Serialization;
 
 namespace Sharpliner.Tests.AzureDevOps;
 
+[Collection("Serial:1")]
 public class TemplateTests
 {
     private class TemplateList_Pipeline : SimpleTestPipeline

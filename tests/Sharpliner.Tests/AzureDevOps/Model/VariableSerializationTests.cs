@@ -2,6 +2,7 @@
 
 namespace Sharpliner.Tests.AzureDevOps;
 
+[Collection("Serial:1")]
 public class VariableSerializationTests
 {
     private class VariablesPipeline : TestPipeline

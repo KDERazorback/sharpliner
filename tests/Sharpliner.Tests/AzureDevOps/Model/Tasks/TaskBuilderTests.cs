@@ -3,6 +3,7 @@ using Sharpliner.AzureDevOps.Tasks;
 
 namespace Sharpliner.Tests.AzureDevOps;
 
+[Collection("Serial:1")]
 public class TaskBuilderTests
 {
     private abstract class TestPipeline : SingleStagePipelineDefinition

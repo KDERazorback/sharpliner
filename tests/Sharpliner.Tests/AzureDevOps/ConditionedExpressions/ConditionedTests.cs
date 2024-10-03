@@ -1,9 +1,10 @@
-﻿using FluentAssertions;
+using FluentAssertions;
 using Sharpliner.AzureDevOps;
 using Sharpliner.AzureDevOps.ConditionedExpressions;
 
 namespace Sharpliner.Tests.AzureDevOps.ConditionedExpressions;
 
+[Collection("Serial:1")]
 public class ConditionedTests
 {
     private class Equality_Test_Pipeline : SingleStagePipelineDefinition

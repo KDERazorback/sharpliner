@@ -2,6 +2,7 @@
 
 namespace Sharpliner.Tests.AzureDevOps;
 
+[Collection("Serial:1")]
 public class StrategySerializationTests
 {
     [Fact]

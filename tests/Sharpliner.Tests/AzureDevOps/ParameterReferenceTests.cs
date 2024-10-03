@@ -3,6 +3,7 @@ using Sharpliner.AzureDevOps.ConditionedExpressions;
 
 namespace Sharpliner.Tests.AzureDevOps;
 
+[Collection("Serial:1")]
 public class ParameterReferenceTests
 {
     private class ParameterReferenceTest_Template : StageTemplateDefinition

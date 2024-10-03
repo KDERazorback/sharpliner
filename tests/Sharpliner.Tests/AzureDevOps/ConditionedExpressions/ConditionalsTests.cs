@@ -2,6 +2,7 @@
 
 namespace Sharpliner.Tests.AzureDevOps.ConditionedExpressions;
 
+[Collection("Serial:1")]
 public class ConditionalsTests
 {
     private class And_Condition_Test_Pipeline : TestPipeline

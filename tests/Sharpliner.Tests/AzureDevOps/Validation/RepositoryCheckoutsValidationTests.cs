@@ -3,6 +3,7 @@ using Sharpliner.AzureDevOps;
 
 namespace Sharpliner.Tests.AzureDevOps.Validation;
 
+[Collection("Serial:1")]
 public class RepositoryCheckoutsValidationTests
 {
     private class MissingResourcePipeline : SimpleTestPipeline
