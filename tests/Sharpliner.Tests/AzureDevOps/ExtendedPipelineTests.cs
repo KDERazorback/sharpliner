@@ -1,9 +1,10 @@
-﻿using FluentAssertions;
+using FluentAssertions;
 using Sharpliner.AzureDevOps;
 using Xunit;
 
 namespace Sharpliner.Tests.AzureDevOps;
 
+[Collection("Serial:1")]
 public class ExtendedPipelineTests
 {
     private class Extended_Pipeline : ExtendsPipelineDefinition<PipelineWithExtends>

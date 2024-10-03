@@ -1,4 +1,4 @@
-﻿using System.Linq;
+using System.Linq;
 using FluentAssertions;
 using Sharpliner.AzureDevOps;
 using Sharpliner.Common;
@@ -6,6 +6,7 @@ using Xunit;
 
 namespace Sharpliner.Tests.AzureDevOps.Validation;
 
+[Collection("Serial:1")]
 public class DependsOnValidationTests
 {
     private class ConditionedDependsOnPipeline : TestPipeline

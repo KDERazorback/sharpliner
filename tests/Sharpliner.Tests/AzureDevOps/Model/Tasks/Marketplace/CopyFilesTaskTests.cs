@@ -1,9 +1,10 @@
-﻿using FluentAssertions;
+using FluentAssertions;
 using Sharpliner.AzureDevOps.Tasks;
 using Xunit;
 
 namespace Sharpliner.Tests.AzureDevOps;
 
+[Collection("Serial:1")]
 public class CopyFilesTaskTests
 {
     [Fact]

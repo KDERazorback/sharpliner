@@ -1,9 +1,10 @@
-﻿using FluentAssertions;
+using FluentAssertions;
 using Sharpliner.AzureDevOps;
 using Xunit;
 
 namespace Sharpliner.Tests.AzureDevOps.ConditionedExpressions;
 
+[Collection("Serial:1")]
 public class EachExpressionTests
 {
     private class Each_Expression_Test_Pipeline : TestPipeline

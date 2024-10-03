@@ -1,10 +1,11 @@
-﻿using System.Runtime.InteropServices;
+using System.Runtime.InteropServices;
 using FluentAssertions;
 using Sharpliner.AzureDevOps;
 using Xunit;
 
 namespace Sharpliner.Tests.AzureDevOps;
 
+[Collection("Serial:1")]
 public class PipelineLockBehaviorTests
 {
     private class PipelineLockBehaviorTests_Pipeline : SimpleTestPipeline
