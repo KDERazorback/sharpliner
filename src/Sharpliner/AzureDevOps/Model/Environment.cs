@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using YamlDotNet.Serialization;
 
@@ -35,7 +35,7 @@ public record Environment
     /// <summary>
     /// Tag names to filter the resources in the environment
     /// </summary>
-    public List<string> Tags { get; init; } = [];
+    public string Tags { get; init; } = string.Empty;
 
     public Environment(string name, string? resourceName = null)
     {

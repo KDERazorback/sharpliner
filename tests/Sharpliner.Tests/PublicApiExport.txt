@@ -379,7 +379,7 @@ namespace Sharpliner.AzureDevOps
         public int? ResourceId { get; init; }
         public string? ResourceName { get; init; }
         public Sharpliner.AzureDevOps.ResourceType? ResourceType { get; init; }
-        public System.Collections.Generic.List<string> Tags { get; init; }
+        public string Tags { get; init; }
     }
     public sealed class EnvironmentVariableReference : Sharpliner.AzureDevOps.VariableReferenceBase
     {
