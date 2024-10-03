@@ -18,9 +18,11 @@ public abstract class PipelineDefinitionBase<TPipeline>
     public abstract string TargetFile { get; }
 
     /// <summary>
-    /// Specifies the type of the target path for the generated template or pipeline.
-    /// By default, the path is relative to the current directory.
+    /// Path to the folder where this definition/collection will be exported to
+    /// Example: "/pipelines"
     /// </summary>
+    public virtual string BasePath { get; } = string.Empty;
+
     public virtual TargetPathType TargetPathType => TargetPathType.RelativeToCurrentDir;
 
     /// <summary>

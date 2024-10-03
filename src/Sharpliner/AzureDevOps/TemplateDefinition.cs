@@ -100,8 +100,11 @@ public abstract class TemplateDefinitionBase<T> : TemplateDefinition, ISharpline
     public abstract string TargetFile { get; }
 
     /// <summary>
-    /// Specifies the type of the target path for the template definition.
+    /// Path to the folder where this definition/collection will be exported to
+    /// Example: "/pipelines"
     /// </summary>
+    public virtual string BasePath { get; } = string.Empty;
+
     public virtual TargetPathType TargetPathType => TargetPathType.RelativeToCurrentDir;
 
     /// <summary>
