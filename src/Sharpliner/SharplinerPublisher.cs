@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.IO;
@@ -227,6 +227,7 @@ public class SharplinerPublisher(TaskLoggingHelper logger)
 
         SharplinerConfiguration.Current.Hooks.BeforePublish?.Invoke(definition, destinationPath);
 
+        Log(ValidationSeverity.Information, string.Format("Definition: {0}\n\tDestination: {1}\n\tTargetFile: {2}", definition.GetType().FullName, destinationPath, definition.TargetFile));
         string yaml = definition.Serialize();
 
         if (SharplinerConfiguration.Current.Serialization.IncludeHeaders)
