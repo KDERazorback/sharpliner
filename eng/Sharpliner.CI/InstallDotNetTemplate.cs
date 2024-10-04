@@ -29,6 +29,7 @@ class InstallDotNetTemplate : StepTemplateCollection
 
         return new(
             targetFile,
+            string.Empty,
             [step],
             [StringParameter("version")]);
     }

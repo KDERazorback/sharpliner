@@ -33,6 +33,7 @@ public class PublishDefinitions : Microsoft.Build.Utilities.Task
         // The user's assembly is not in the probing path of the Sharpliner NuGet but it has Sharpliner.dll as well.
         // Read more details here: https://github.com/sharpliner/sharpliner/issues/179
         var sharplinerAssemblyPath = Path.Combine(Path.GetDirectoryName(Assembly)!, "Sharpliner.dll");
+        Log.LogMessage("Sharpliner running from: {path}", sharplinerAssemblyPath);
 
         var assembly = System.Reflection.Assembly.LoadFrom(sharplinerAssemblyPath);
         if (assembly is null)

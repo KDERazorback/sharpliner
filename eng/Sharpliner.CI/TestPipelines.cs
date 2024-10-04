@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using Sharpliner.AzureDevOps;
 
@@ -19,6 +20,7 @@ class TestPipelines : SingleStagePipelineCollection
     public override IEnumerable<PipelineDefinitionData<SingleStagePipeline>> Pipelines =>
         s_platforms.Select(platform => new PipelineDefinitionData<SingleStagePipeline>(
             TargetFile: $"{CI.Pipelines.Location}test/{platform}.yml",
+            BasePath: String.Empty,
             Pipeline: Define(platform),
             Header:
             [
